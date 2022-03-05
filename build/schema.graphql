@@ -1,0 +1,19 @@
+type LogClose @entity {
+  id: ID!
+  tokenId: BigInt! # uint256
+  owner: Bytes! # address
+  amount0: BigInt! # uint256
+  amount1: BigInt! # uint256
+  fee0: BigInt! # uint256
+  fee1: BigInt! # uint256
+  token0to1: Boolean! # bool
+}
+
+type LogCreate @entity {
+  id: ID!
+  tokenId: BigInt! # uint256
+  owner: Bytes! # address
+  liquidity: BigInt! # uint256
+  amount: BigInt! # uint256
+  token0to1: Boolean! # bool
+}
