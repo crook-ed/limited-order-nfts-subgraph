@@ -1,0 +1,26 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Contract
+    network: matic
+    source:
+      address: "0xfC428E6535dC5Fee30fb57cFc93EBB1D92fdCf6e"
+      abi: Contract
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - LogClose
+        - LogCreate
+      abis:
+        - name: Contract
+          file: ./abis/Contract.json
+      eventHandlers:
+        - event: LogClose(indexed uint256,indexed address,uint256,uint256,uint256,uint256,indexed bool)
+          handler: handleLogClose
+        - event: LogCreate(indexed uint256,indexed address,uint256,uint256,indexed bool)
+          handler: handleLogCreate
+      file: ./src/mapping.ts
